@@ -1,0 +1,57 @@
+aeauth:
+  base_url: /auth
+  login_url: /auth/login
+  logout_url: /auth/logout
+  success_url: /
+  user_profile_model: aeauth.strategies.UserProfile
+  providers:
+    google: /auth/google
+    facebook: /auth/facebook
+    twitter: /auth/twitter
+    yahoo: /auth/appengine_openid?provider=yahoo.com
+    linkedin: /auth/linkedin
+    aol: /auth/appengine_openid?provider=aol.com
+    myopenid: /auth/appengine_openid?provider=myopenid.com
+    myspace: /auth/appengine_openid?provider=myspace.com
+    github: /auth/github
+
+aeauth.strategies.appengine_openid:
+  user_profile_model: aeauth.strategies.appengine_openid.AppEngineOpenIDUserProfile
+
+aeauth.strategies.facebook:
+  user_profile_model: aeauth.strategies.facebook.FacebookUserProfile
+  client_id: None
+  client_secret: None
+  scope: email
+
+aeauth.strategies.github:
+  user_profile_model: aeauth.strategies.github.GithubUserProfile
+  client_id: None
+  client_secret: None
+
+aeauth.strategies.google:
+  user_profile_model: aeauth.strategies.google.GoogleUserProfile
+  client_id: None
+  client_secret: None
+  api_key: None
+  scope: 'https://www.googleapis.com/auth/userinfo.email
+          https://www.googleapis.com/auth/userinfo.profile
+          https://www.googleapis.com/auth/plus.me'
+
+aeauth.strategies.linkedin:
+  user_profile_model: aeauth.strategies.linkedin.LinkedInUserProfile
+  client_id: None
+  client_secret: None
+  fields: 'id,first-name,last-name,headline,industry,picture-url,public-profile-url'
+
+aeauth.strategies.password:
+  user_profile_model: aeauth.strategies.password.PasswordUserProfile
+  required: email
+  uid: email
+
+aeauth.strategies.twitter:
+  user_profile_model: aeauth.strategies.twitter.TwitterUserProfile
+  client_id: None
+  client_secret: None
+
+

@@ -1,0 +1,38 @@
+
+
+<div class="aeauth-form row">
+  {% include "partials/messages.html" %}
+  <div class="span5">
+    <header>
+      <h4>To get started, login with one of your existing accounts.</h4>
+    </header>
+    <ul>
+      {% for p, u in providers.items() %}
+        <li class="provider-btn"><a href="{{ u }}" class="btn"><img src="/auth/static/img/{{ p }}.png" /></a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="span4">
+    <header>
+      <h4>Or create a new one.</h4>
+    </header>
+    <div class="password-form form-horizontal">
+      <form method="POST" action="/auth/password">
+        <fieldset class="control-group">
+          <label for="email" class="control-label"><strong>Email</strong></label>
+          <div class="controls"><input type="text" name="email" /></div>
+        </fieldset>
+        <fieldset class="control-group">
+          <label for="password" class="control-label"><strong>Password</strong></label>
+          <div class="controls"><input type="password" name="password" /></div>
+        </fieldset>
+        <fieldset class="form-actions">
+          <button type="submit" class="btn">Login</button>
+        </fieldset>
+        <fieldset class="control-group">
+          <div class="controls"><p><small><a href="/account/recovery">Can't access your account?</a></small></p></div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
